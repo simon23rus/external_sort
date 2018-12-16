@@ -2,13 +2,18 @@ import argparse
 import random
 import string
 import sys
+import unicodedata
 
 
 def main(parsed_args):
     if parsed_args.symbol_type == 'ascii':
         symbols = string.ascii_letters + string.digits
     else:
-        symbols = list(map(chr, range(sys.maxunicode)))
+        symbols = []
+        for uni_code in range(sys.maxunicode):
+            symbol = chr(uni_code)
+            if unicodedata.category(symbol) != 'Cs':
+                symbols.append(symbol)
 
     with open(parsed_args.output_filename, 'w') as f:
         generated_strings = list()

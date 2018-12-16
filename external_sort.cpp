@@ -25,11 +25,10 @@ public:
     };
     
     void run();
-    
+private:
     long long GetLinesNumber();
     void MakeSplit(long long& currentLineNumber, const long long& currentBatchSize);
     void MergeTwoFiles(const long long& currentBatchSize);
-private:
     std::string inputFilename;
     std::string fstTempFilename;
     std::string sndTempFilename;

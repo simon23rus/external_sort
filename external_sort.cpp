@@ -15,8 +15,8 @@
 class ExternalSortRunner {
 public:
     ExternalSortRunner(const std::string& inputFilename,
-                 const std::string& fstTempFilename,
-                 const std::string& sndTempFilename)
+                       const std::string& fstTempFilename,
+                       const std::string& sndTempFilename)
         : inputFilename(inputFilename), fstTempFilename(fstTempFilename), sndTempFilename(sndTempFilename) {};
     
     ~ExternalSortRunner() {
@@ -27,8 +27,7 @@ public:
     void run();
     
     long long GetLinesNumber();
-    void MakeSplit(long long& currentLineNumber,
-                   const long long& currentBatchSize);
+    void MakeSplit(long long& currentLineNumber, const long long& currentBatchSize);
     void MergeTwoFiles(const long long& currentBatchSize);
 private:
     std::string inputFilename;
@@ -52,7 +51,7 @@ long long ExternalSortRunner::GetLinesNumber() {
 }
 
 void ExternalSortRunner::MakeSplit(long long& currentLineNumber,
-                             const long long& currentBatchSize) {
+                                   const long long& currentBatchSize) {
 
     std::ifstream inputFile(inputFilename);
     
